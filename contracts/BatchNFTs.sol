@@ -3,14 +3,14 @@ pragma solidity ^0.8.13;
 import "./ERC721.sol";
 import "./ERC721A.sol";
 
-contract BatchNFTs is Ownable, ERC721A {
-    uint256 public constant MAX_SUPPLY = 100;
-    uint256 public constant PRICE_PER_TOKEN = 0.01 ether;
+contract antartica2 is Ownable, ERC721A {
+    uint256 public constant MAX_SUPPLY = 200; 
+    uint256 public constant PRICE_PER_TOKEN = 0.02 ether; // Doubled price per token
     uint256 public immutable START_TIME;
     bool public mintPaused;
     string private _baseTokenURI;
 
-    constructor(uint256 _startTime, bool _paused) ERC721A("TRYING", "TRY") {
+    constructor(uint256 _startTime, bool _paused) ERC721A("TRYING2", "TRY2") {
         START_TIME = _startTime;
         mintPaused = _paused;
     }
@@ -29,7 +29,7 @@ contract BatchNFTs is Ownable, ERC721A {
     }
 
     function setBaseURI(string calldata baseURI) external {
-        _baseTokenURI = baseURI;
+        _baseTokenURI = "https://lime-abundant-peafowl-776.mypinata.cloud/ipfs/QmQpWHw1RHCK8Ybax72PFm7gyQvZ3xSarpyoB6WMwD8phV/";
     }
 
     function _baseURI() internal view override returns (string memory) {
@@ -43,7 +43,7 @@ contract BatchNFTs is Ownable, ERC721A {
 
     function promptDescription() public pure returns (string memory des) {
         return (
-            "a : A portrait of an eerie fairie queen | Smiling with sharp shark-like teeth | Pitch black eyes | Green plant-like hair | Silver circlet on brow | Trending on artstation"
+            "many people living peacefully in Antarctica"
         );
     }
 }
