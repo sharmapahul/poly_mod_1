@@ -1,8 +1,8 @@
 const { ethers } = require("hardhat");
 const {
   FXRootContractAbi,
-} = require("/Users/sanjitpandit/Desktop/erc721a-implementation/artifacts/FXRootContractAbi.js");
-const ABI = require("../artifacts/contracts/BatchNFTs.sol/BatchNFTs.json");
+} = require("../artifacts/FXRootContractAbi.js");
+const ABI = require("../artifacts/contracts/antarticaNFTs.sol/antartica2.json");
 require("dotenv").config();
 
 async function main() {
@@ -15,11 +15,11 @@ async function main() {
 
   const [signer] = await ethers.getSigners();
 
-  const NFT = await ethers.getContractFactory("BatchNFTs");
+  const NFT = await ethers.getContractFactory("antartica2");
   const nft = await NFT.attach("0xcC22949cafD62E5040f7B81EE8cc522669bcC792");
 
   const fxRootAddress = "0xF9bc4a80464E48369303196645e876c8C7D972de";
-  const fxRoot = await ethers.getContractAt(FXRootContractAbi, fxRootAddress);
+  //const fxRoot = await ethers.getContractAt(FXRootContractAbi, fxRootAddress);
 
   const tokenIds = [0, 1, 2, 3, 4];
 
